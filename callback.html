@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback</title>
+</head>
+<body>
+    <h1>Callback recibido</h1>
+    <script>
+        // Captura los parámetros enviados por MercadoLibre
+        const params = new URLSearchParams(window.location.search);
+        const authorizationCode = params.get('code');
+        
+        // Muestra el código de autorización (puedes enviarlo a tu backend)
+        console.log('Authorization Code:', authorizationCode);
+    </script>
+</body>
+</html>
