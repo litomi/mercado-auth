@@ -18,7 +18,7 @@
             console.log('Authorization Code:', authorizationCode);
 
             // Enviar el código al backend usando Fetch API
-            fetch('https://litomi.github.io/mercado-auth/callback.html', {
+            fetch('http://127.0.0.1:8000/api/mercadolibre/callback', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
