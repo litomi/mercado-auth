@@ -4,50 +4,9 @@
     <title>Callback MercadoLibre</title>
 </head>
 <body>
-    <h1>Autenticación con MercadoLibre</h1>
-    <p>Procesando la autenticación...</p>
+    repositorio
 
     <div id="result"></div> <!-- Aquí se mostrará la respuesta -->
 
-    <script>
-        // Captura los parámetros de la URL
-        const params = new URLSearchParams(window.location.search);
-        const authorizationCode = params.get('code');
-
-        if (authorizationCode) {
-            console.log('Authorization Code:', authorizationCode);
-
-            // Enviar el código al backend usando Fetch API
-            fetch('http://127.0.0.1:8000/api/mercadolibre/callback', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ code: authorizationCode })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Respuesta del servidor:', data);
-
-                // Convertir la respuesta JSON a un string formateado y mostrarlo en la pantalla
-                document.getElementById('result').innerHTML = `
-                    <h2>Respuesta del Servidor</h2>
-                    <pre>${JSON.stringify(data, null, 4)}</pre>
-                `;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('result').innerHTML = `
-                    <h2>Error</h2>
-                    <p>No se pudo obtener la respuesta del servidor.</p>
-                `;
-            });
-        } else {
-            document.getElementById('result').innerHTML = `
-                <h2>Error</h2>
-                <p>No se recibió código de autorización.</p>
-            `;
-        }
-    </script>
 </body>
 </html>
